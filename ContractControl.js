@@ -1,5 +1,4 @@
 const contractControl = {
-    "data":{
         "head": {
             "id": "contract-template-itss",
             "code": "contract-template-itss",
@@ -65,7 +64,7 @@ const contractControl = {
                     {
                         "code": "contract-title",
                         "field": "TITLE OF THE CONTRACT: $[contract-title::textinput::Type Here. Provide a descriptive title and ensure it matches the title on the contract document]"
-                    },
+                    },  
                     {
                         "code": "vender-name",
                         "field": "VENDOR NAME: $[vendor-name::textinput::Type here]",
@@ -81,7 +80,16 @@ const contractControl = {
                     },
                     {
                         "code": "contract-type",
-                        "field": "$[contract-type::singleselection::Professional Services,Maintenance/Service Support,Standing Offer Contract]"
+                        "field": "CONTACT TYPE: $[contract-type]",
+                        "contract-type": {
+                            'ops': ['Professional Services',
+                                    'Maintenance/Service Support',
+                                    'Standing Offer Contract',
+                                    'Other'],
+                            'type': 'singleselection',
+                            'other': 'othervalue'
+                        }
+                    
                     },
                     {
                         "code": "amendment-no",
@@ -137,8 +145,6 @@ const contractControl = {
             }
     
         ]
-    }
-
 };
 
 module.exports = contractControl;
